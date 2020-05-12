@@ -1,0 +1,12 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+	<h1> <p style="color:#CE0E0E">Project</p> </h1>
+    <div class="crh">
+		<a class="btn btn-default" href="{% url 'project_edit' pk=project.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'project_remove' pk=project.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <h2>{{ project.name }}</h2>
+        <p>Domain: {{ project.domain|linebreaksbr }}</p>
+		<p>Manager: {{ project.manager|linebreaksbr }}</p>
+    </div>
+{% endblock %}

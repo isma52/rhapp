@@ -1,0 +1,18 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+	<h1> <p style="color:#CE0E0E">CRH {{ crhs|first }} {{employee.surname}}
+	</p> </h1>
+	{% for crh in crhs %}
+		<h2><a href="{% url 'crh_detail' pk=crh.pk %}">{{ crh.employee }} {{employee.surname}}</a></h2>
+		<div>
+			<p>Employee: {{ crh.employee }} {{employee.surname}}</p>
+			<p>Last CRH: {{ crh.crh_date }}</p>
+		</div>
+	{% endfor %}
+	<script>
+	function first(obj) {
+    for (var a in obj) return a;
+	}
+	</script>
+{% endblock %}

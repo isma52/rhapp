@@ -1,0 +1,14 @@
+{% extends 'rhapp/base.html' %}
+{% load crispy_forms_tags i18n%}
+{% block content %}
+    {% if new == 1%}
+		<h2>New employee</h2>
+	{% else%}
+		<h2>{{employee}}</h2>
+	{% endif%}
+    <form method="POST" class="employee_form">{% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+	<button class="cancel btn btn-default" onclick="javascript:history.back();">Cancel</button>
+{% endblock %}

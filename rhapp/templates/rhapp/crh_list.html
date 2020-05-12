@@ -1,0 +1,29 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+	<div class="Tabla1">
+	<table>
+		<tr>
+			<th>Employee</th>
+			<th>Performance</th>
+			<th>CRH date</th>
+		</tr>
+		{% for crh in crhsLast %}
+		<tr> 
+			<td><a href="{% url 'crh_detail' pk=crh.pk %}">{{ crh.employee }}</a></td>
+			<td>{{ crh.op_perf }}</td>
+			<td>{{ crh.crh_date }}</td>
+		</tr>
+		{% endfor %}	
+	</table>
+	</div>
+
+	{% for crh in crhsLast %}
+		<h2><a href="{% url 'crh_detail' pk=crh.pk %}">{{ crh.employee }}</a></h2>
+		<h2><a href="{% url 'crh_historic' pk=crh.employee.id %}">{{ crh.employee }}</a></h2>
+		<div>
+			<p>Employee: {{ crh.employee }}</p>
+			<p>Last CRH: {{ crh.crh_date }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

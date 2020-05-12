@@ -1,0 +1,13 @@
+{% extends 'rhapp/base.html' %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+	<h1> <p style="color:#CE0E0E">Projects</p> </h1>
+	<div class="Tabla1">
+		{% crispy filter.form filter.form.helper %}
+		{% render_table table %}
+		<form class="act_button">     
+			<a class="btn btn-default" href="{% url 'project_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
+		</form>
+	</div>
+{% endblock %}

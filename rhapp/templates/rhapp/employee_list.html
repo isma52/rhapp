@@ -1,0 +1,12 @@
+{% extends 'rhapp/base.html' %}
+{% block content %}
+	{% for employee in employees %}
+		<h2><a href="{% url 'employee_detail' pk=employee.pk %}">{{ employee }}</a></h2>
+		<div>
+			<p>Date of birth: {{ employee.date_birth }}</p>
+			<p>Name: {{ employee.name }}</p>
+			<p>Surname: {{ employee.surname }}</p>
+			<p>Employee number: {{ employee.employee_number }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

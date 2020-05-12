@@ -1,0 +1,11 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+{% extends 'rhapp/base.html' %}
+{% block content %}
+	<h1>Download employees</h1>
+    <p>Dump your data here</p>
+    <a href="javascript:void(0)" class="btn btn-primary btn-lg dump">Download</a>
+{% endblock %}
+{% block javascript %}
+<script src="{% static 'js/download_employee.js' %}"></script>
+{% endblock %}

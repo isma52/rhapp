@@ -1,0 +1,30 @@
+{% extends 'rhapp/base.html' %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags i18n %}
+{% block content %}
+	<h1><p style="color:#CE0E0E">Employees</p> </h1>
+	<div class="Tabla1">
+		{% crispy filter.form filter.form.helper %}
+		<form action="{% url 'employees_remove_from_table'%}" method="post">{% csrf_token %}
+			{% render_table table %}
+			<form class="act_button">     
+				<label for="deleteAction" class="btn btn-default""><i class="glyphicon glyphicon-remove"></i> </label>
+				<input id="deleteAction" type="submit" value = "Delete" onclick="clicked(event)" class="hidden"/>
+				<a class="btn btn-default" href="{% url 'employee_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
+			</form>
+			
+			<script>
+			function clicked(e){
+				if(!confirm('Confirm remove items selected?'))e.preventDefault();
+			}
+			function toggle(source) {
+				checkboxes = document.getElementsByName('emp_to_delete');
+				for(var i in checkboxes)
+					checkboxes[i].checked = source.checked;
+			}
+			</script>
+		</form>
+	</div>
+	<h1><a href="employees_upload_download">Upload new employees or download existant ones</a></h1>
+	
+{% endblock %}

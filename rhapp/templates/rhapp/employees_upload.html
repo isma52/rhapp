@@ -1,0 +1,19 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+{% extends 'rhapp/base.html' %}
+{% block content %}
+	<h1>Upload new employees or download existant ones</h1>
+	<form method="POST" class="employee_upload_form" enctype="multipart/form-data">{% csrf_token %}
+		<div class="custom-file mb-3">
+			<input type="file" class="custom-file-input" id="customFile" name="file">
+			<label class="custom-file-label" for="customFile">Choose file</label>
+			<input type="text" name="title" maxlength="50" required id="id_title" value = "excel_file" class="hidden">
+		</div>
+		<button type="button" class="cancel btn btn-default" onclick="javascript:history.back();">Cancel</button>
+		<input type="submit" value ="Upload with replacement" name ="UploadWithRep" class="submit btn btn-default"></button>
+		<input type="submit" value= "Upload without replacement" name ="UploadWithoutRep" class="submit btn btn-default"></button>
+    </form>
+	<a class="btn btn-default" href="employees_download"> Download employees Excel</a> <br>
+	{% if result != "OK"%}
+		{{result}}
+	{% endif%}
+{% endblock %}

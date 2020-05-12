@@ -1,0 +1,20 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+    <h1> <p style="color:#CE0E0E">Employee</p> </h1>
+	<div class="employee">
+		<a class="btn btn-default" href="{% url 'employee_edit' pk=employee.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'employee_remove' pk=employee.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <h2>{{ employee.name }} {{ employee.surname }}</h2>
+        <p>Employee number: {{ employee.employee_number|linebreaksbr }}</p>
+		<p>Year of birth: {{ employee.yearBirthday|linebreaksbr }}</p>
+		<p>Age: {{ employee.age|linebreaksbr }}</p>
+		<p>Profil: {{ employee.profil|linebreaksbr }}</p>
+		<p>Level: {{ employee.level|linebreaksbr }}</p>
+		<p>Maturity: {{ employee.maturity|linebreaksbr }}</p>
+		<p>Experience from: {{ employee.exp_from_date|linebreaksbr }}</p>
+		<p>In the company since: {{ employee.company_seniority|linebreaksbr }}</p>
+		<p>Salary: {{ employee.salary|linebreaksbr }}</p>
+		<p>Current project: {{ employee.proj|linebreaksbr }}</p>
+    </div>
+{% endblock %}

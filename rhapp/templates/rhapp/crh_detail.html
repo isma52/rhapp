@@ -1,0 +1,14 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+	<h1> <p style="color:#CE0E0E">CRH</p> </h1>
+    <div class="crh">
+		<a class="btn btn-default" href="{% url 'crh_edit' pk=crh.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'employee_remove' pk=crh.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <h2>{{ crh.employee.name }} {{ emp }}</h2>
+		<p>CRH Date: {{ crh.crh_date|linebreaksbr }}</p>
+        <p>Employee perf: {{ crh.op_perf|linebreaksbr }}</p>
+		<p>Potential: {{ crh.potential|linebreaksbr }}</p>
+		<p>Comment: {{ crh.comment|linebreaksbr }}</p>
+    </div>
+{% endblock %}

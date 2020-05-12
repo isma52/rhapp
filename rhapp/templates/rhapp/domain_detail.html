@@ -1,0 +1,11 @@
+{% extends 'rhapp/base.html' %}
+
+{% block content %}
+	<h1> <p style="color:#CE0E0E">Domain</p> </h1>
+    <div class="crh">
+		<a class="btn btn-default" href="{% url 'domain_edit' pk=domain.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a class="btn btn-default" href="{% url 'domain_remove' pk=domain.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+        <h2>{{ domain.name }}</h2>
+		<p>Manager: {{ domain.manager|linebreaksbr }}</p>
+    </div>
+{% endblock %}
